@@ -1,0 +1,10 @@
+<ResultEntry>
+    <name>Juan Pérez</name>
+    <movies>
+        <movie>The Matrix</movie>
+        <movie>Toy Story</movie>
+        <movie>Oppenheimer</movie>
+    </movies>
+    <amountOwed>45.75</amountOwed>
+    <frequentRenterPoints>3</frequentRenterPoints>
+</ResultEntry>

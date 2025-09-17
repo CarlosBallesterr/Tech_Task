@@ -1,0 +1,14 @@
+<MovieTypes>
+    <MovieTypeEntry>
+        <id>0</id>
+        <type>REGULAR</type>
+    </MovieTypeEntry>
+    <MovieTypeEntry>
+        <id>1</id>
+        <type>NEW_RELEASE</type>
+    </MovieTypeEntry>
+    <MovieTypeEntry>
+        <id>2</id>
+        <type>CHILDREN</type>
+    </MovieTypeEntry>
+</MovieTypes>
