@@ -7,8 +7,4 @@
         <id>1</id>
         <type>NEW_RELEASE</type>
     </MovieTypeEntry>
-    <MovieTypeEntry>
-        <id>2</id>
-        <type>CHILDREN</type>
-    </MovieTypeEntry>
 </MovieTypes>

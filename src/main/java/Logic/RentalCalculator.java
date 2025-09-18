@@ -83,7 +83,7 @@ public class RentalCalculator {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
         Enumeration<Rental> rentals = customer.get_rentals().elements();
-        StringBuilder result = new StringBuilder(print.header(customer.getName()));
+        StringBuilder result = new StringBuilder(print.header(customer.get_name()));
         while (rentals.hasMoreElements()) {
             Rental each = rentals.nextElement();
             double thisAmount = calculateAmount(each);
