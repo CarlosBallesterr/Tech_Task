@@ -1,7 +1,6 @@
 import Controller.RentalCalculator;
 import Models.*;
 import Models.CustomerBuild;
-
 import java.io.IOException;
 
 public class Main {
