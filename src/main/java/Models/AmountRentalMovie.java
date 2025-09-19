@@ -1,8 +1,22 @@
 package Models;
 
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+
+@XmlRootElement(name = "movie")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class AmountRentalMovie {
     private String movieName;
     private double amountMovie;
+
+    public AmountRentalMovie() {}
+
+    public AmountRentalMovie(String movieName, double amountMovie) {
+        this.movieName = movieName;
+        this.amountMovie = amountMovie;
+    }
+
 
     public String getMovieName() {
         return movieName;

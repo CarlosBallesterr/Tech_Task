@@ -1,13 +1,24 @@
 package Models;
 
+import jakarta.xml.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
+
+@XmlRootElement(name = "ResultEntry")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ResultEntry {
     private String name;
+
+    @XmlElementWrapper(name = "movies")
+    @XmlElement(name = "movie")
     private List<AmountRentalMovie> movies;
+
     private double amountOwed;
     private int frequentRenterPoints;
+
+    public ResultEntry() {}
 
     public ResultEntry(String name, List<AmountRentalMovie> movies, double amountOwed, int frequentRenterPoints) {
         this.name = name;
@@ -15,6 +26,7 @@ public class ResultEntry {
         this.amountOwed = amountOwed;
         this.frequentRenterPoints = frequentRenterPoints;
     }
+
 
     public String getName() {
         return name;
@@ -24,11 +36,11 @@ public class ResultEntry {
         this.name = name;
     }
 
-    public List getMovies() {
+    public List<AmountRentalMovie> getMovies() {
         return movies;
     }
 
-    public void setMovies(ArrayList movies) {
+    public void setMovies(List<AmountRentalMovie> movies) {
         this.movies = movies;
     }
 

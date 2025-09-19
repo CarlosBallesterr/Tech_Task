@@ -4,7 +4,10 @@ package Logic;
 import Models.*;
 import Prints.Print;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 
 /**
  * This class calculates the customer's account balance for their rentals.
@@ -13,10 +16,12 @@ public class RentalCalculator {
 
     private Customer customer;
     private final Print print;
+    private SaveRentalCustomer saveRentalCustomer;
 
     public RentalCalculator(Customer customer) {
         this.customer = customer;
         this.print = new Print();
+        this.saveRentalCustomer = new SaveRentalCustomer();
     }
 
     /**
@@ -79,19 +84,39 @@ public class RentalCalculator {
      *
      * @return a string with the customer's account balance, ready to be printed or displayed
      */
-    public String calculate() {
+    public String calculate() throws IOException {
+
+        ResultEntry resultEntry =  new ResultEntry();//for result
+
         double totalAmount = 0;
         int frequentRenterPoints = 0;
         Enumeration<Rental> rentals = customer.get_rentals().elements();
         StringBuilder result = new StringBuilder(print.header(customer.get_name()));
+
+        resultEntry.setName(customer.get_name() +" "+customer.get_lastName());//for result
+        List<AmountRentalMovie> listResult = new ArrayList<>();//for result
+
         while (rentals.hasMoreElements()) {
             Rental each = rentals.nextElement();
             double thisAmount = calculateAmount(each);
             frequentRenterPoints = calculateRenterPoints(each, frequentRenterPoints);
             result.append(print.rentalLine(each, thisAmount));
+
+            AmountRentalMovie amountRentalMovie = new AmountRentalMovie(each.getMovie().getTitle(), thisAmount);//for result
+            listResult.add(amountRentalMovie);//for result
+
+
             totalAmount += thisAmount;
         }
+        resultEntry.setMovies(listResult);//for result
+
         result.append(print.footer(totalAmount, frequentRenterPoints));
+
+        resultEntry.setAmountOwed(totalAmount);//for result
+        resultEntry.setFrequentRenterPoints(frequentRenterPoints);//for result
+
+        saveRentalCustomer.saveDataXmlFormat(resultEntry);
+
         return result.toString();
     }
 }

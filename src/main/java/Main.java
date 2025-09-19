@@ -18,14 +18,11 @@ public class Main {
         RentalCalculator rentalCalculator = new RentalCalculator(customer);
         System.out.println(rentalCalculator.calculate());
 
-//        DataSerializer<MovieTypeEntryList> xmlSerializer =
-//                SerializerFactory.getXmlSerializer(MovieTypeEntryList.class);
+//        DataSerializer<ResultEntry> xmlSerializer2 =
+//                SerializerFactory.getXmlSerializer(ResultEntry.class);
 //
-//        MovieTypeEntryList wrapper = xmlSerializer.read("src/main/resources/MovieTypeEntry.xml");
+//        ResultEntry wrapper2 = xmlSerializer2.read("src/main/resources/ResultEntry.xml");
 //
-//
-//        for (MovieTypeEntry entry : wrapper.getMovieTypes()) {
-//            System.out.println(entry);
-//        }
+//        System.out.println(wrapper2);
     }
 }

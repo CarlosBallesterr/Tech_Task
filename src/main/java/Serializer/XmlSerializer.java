@@ -10,8 +10,8 @@ import java.io.IOException;
 public class XmlSerializer<T> extends DataSerializer<T> {
     private final Class<T> clazz;
 
-    public XmlSerializer(Class<T> clazz) {
-        this.clazz = clazz;
+    public XmlSerializer(Class<T> tClass) {
+        this.clazz = tClass;
     }
 
     @Override
