@@ -2,6 +2,9 @@ package Models;
 
 import java.util.Vector;
 
+/**
+ * This class is a model complement to the {@link Customer} for the builder design pattern.
+ */
 public class CustomerBuild {
     // Required parameters
     private String _name;
@@ -36,7 +39,6 @@ public class CustomerBuild {
         return this;
     }
 
-    // Build method to create a Customer object
     public Customer build() {
         Customer customer = new Customer(this);
         for (Rental rental : _rentals) {

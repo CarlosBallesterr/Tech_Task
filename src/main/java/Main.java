@@ -1,12 +1,8 @@
-import Factory.SerializerFactory;
-import Logic.RentalCalculator;
+import Controller.RentalCalculator;
 import Models.*;
-import Serializer.DataSerializer;
-import com.google.gson.reflect.TypeToken;
+import Models.CustomerBuild;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -17,12 +13,5 @@ public class Main {
 
         RentalCalculator rentalCalculator = new RentalCalculator(customer);
         System.out.println(rentalCalculator.calculate());
-
-//        DataSerializer<ResultEntry> xmlSerializer2 =
-//                SerializerFactory.getXmlSerializer(ResultEntry.class);
-//
-//        ResultEntry wrapper2 = xmlSerializer2.read("src/main/resources/ResultEntry.xml");
-//
-//        System.out.println(wrapper2);
     }
 }
