@@ -8,6 +8,7 @@ import java.util.Vector;
 public class CustomerBuild {
     // Required parameters
     private String _name;
+
     private Vector<Rental> _rentals = new Vector<>();
 
     // Optional parameters
@@ -17,11 +18,6 @@ public class CustomerBuild {
 
     public CustomerBuild(String _name) {
         this._name = _name;
-    }
-
-    public CustomerBuild addRental(Rental rental) {
-        this._rentals.add(rental);
-        return this;
     }
 
     public CustomerBuild addLastName(String lastName) {
@@ -38,6 +34,12 @@ public class CustomerBuild {
         this._gender = gender;
         return this;
     }
+
+    public CustomerBuild addRental(Rental rental) {
+        this._rentals.add(rental);
+        return this;
+    }
+
 
     public Customer build() {
         Customer customer = new Customer(this);

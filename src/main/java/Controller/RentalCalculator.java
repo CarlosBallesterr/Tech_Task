@@ -48,6 +48,7 @@ public class RentalCalculator {
 
             updateResultEntry(customerResult, listResult, totalAmount, frequentRenterPoints);
 
+            //delete this
             saveRentalCustomer.saveDataJsonFormat(customerResult);
 
         } catch (Exception e) {
