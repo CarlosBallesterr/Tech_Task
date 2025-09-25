@@ -1,5 +1,3 @@
-<%@page import="Repository.InMemoryRepository"%>
-<%@page import="Service.TodoService"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Todo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -16,7 +14,7 @@
         </div>     
         <div>
             <h2 class="subtitle">List of To-dos</h2>
-            <a href="addNewTodo.jsp">
+            <a href="SvAddTodo">
                 <button type="button" class="buttonAdd">Add +</button>
             </a>
             <table>
@@ -28,9 +26,8 @@
                     <th>Action</th>
                 </tr>
 
-                <%
-                    TodoService todoService = new TodoService(new InMemoryRepository());
-                    List<Todo> todoList = todoService.getAllTodo();
+                <%                                        
+                    List<Todo> todoList = (List<Todo>) request.getAttribute("todoList");
                     if (todoList != null && !todoList.isEmpty()) {
                         for (Todo todo : todoList) {
                 %>        
@@ -55,7 +52,7 @@
                 } else {
 
                 %>     
-                <p>There are no tasks in the list.</p>
+                <td>There are no tasks in the list.</td>
                 <%   }
                 %>                
             </table>
