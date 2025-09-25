@@ -1,0 +1,9 @@
+com\mycompany\todo\list\servlets\SvTodo.class
+model\Todo.class
+Service\TodoService.class
+data\FakeDB.class
+Repository\ITodoRepository.class
+Repository\InMemoryRepository.class
+com\mycompany\todo\list\servlets\SvEditTodo.class
+com\mycompany\todo\list\servlets\SvAddTodo.class
+Repository\TodoRepository.class
