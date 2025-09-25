@@ -3,6 +3,8 @@ package com.mycompany.todo.list.servlets;
 import Repository.InMemoryRepository;
 import Service.TodoService;
 import data.FakeDB;
+import exception.InvalidTodoDataException;
+import exception.RepositoryException;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,6 +26,7 @@ public class SvAddTodo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         request.getRequestDispatcher("addNewTodo.jsp").forward(request, response);
     }
 
@@ -36,9 +39,15 @@ public class SvAddTodo extends HttpServlet {
         String status = request.getParameter("status");
         String date = request.getParameter("date");
            
-        _service.addTodo(new Todo(FakeDB.generateUniqueId(), title, description, status, date));
+        try {
+            _service.addTodo(new Todo(FakeDB.generateUniqueId(), title, description, status, date));
+            response.sendRedirect("SvTodo");
+        } catch (InvalidTodoDataException | RepositoryException e) {
+            request.setAttribute("errorMessage", e.getMessage());
+            request.getRequestDispatcher("addNewTodo.jsp").forward(request, response);
+        }
         
-        response.sendRedirect("SvTodo");
+        
     }
 
     @Override

@@ -2,7 +2,12 @@ package com.mycompany.todo.list.servlets;
 
 import Repository.InMemoryRepository;
 import Service.TodoService;
+import exception.InvalidTodoDataException;
+import exception.RepositoryException;
+import exception.TodoNotFoundException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +17,7 @@ import model.Todo;
 
 @WebServlet(name = "SvEditTodo", urlPatterns = {"/SvEditTodo"})
 public class SvEditTodo extends HttpServlet {
-    
+
     TodoService _service = new TodoService(new InMemoryRepository());
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -23,10 +28,15 @@ public class SvEditTodo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Todo todo = _service.getTodoById(id);
-        
-        request.setAttribute("todo", todo);
+
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Todo todo = _service.getTodoById(id);
+            request.setAttribute("todo", todo);
+        } catch (TodoNotFoundException | RepositoryException e) {
+            request.setAttribute("errorMessage", e.getMessage());
+        }
+
         request.getRequestDispatcher("editTodo.jsp").forward(request, response);
     }
 
@@ -34,14 +44,20 @@ public class SvEditTodo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int id = Integer.parseInt(request.getParameter("id"));
-        String title = request.getParameter("title");
-        String description = request.getParameter("description");
-        String status = request.getParameter("status");
-        String date = request.getParameter("date");
-                      
-       _service.updateTodo(new Todo(id, title, description, status, date));
-        response.sendRedirect("SvTodo");
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            String title = request.getParameter("title");
+            String description = request.getParameter("description");
+            String status = request.getParameter("status");
+            String date = request.getParameter("date");
+            
+            _service.updateTodo(new Todo(id, title, description, status, date));
+            response.sendRedirect("SvTodo");
+        } catch (TodoNotFoundException ex) {
+            Logger.getLogger(SvEditTodo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvalidTodoDataException | RepositoryException e) {
+            request.setAttribute("errorMessage", e.getMessage());
+        }
     }
 
     @Override
