@@ -8,11 +8,11 @@
     </head>
     <body>
         <div class="header">
-            <a href="index.jsp" class="logo">To-do App</a>    
+            <a href="SvTodo" class="logo">To-do App</a>    
         </div>
         <div>
             <h2>Create To-do</h2>
-            <a href="index.jsp">
+            <a href="SvTodo">
                 <button type="button" class="backButton">Back</button>
             </a>
             <div>

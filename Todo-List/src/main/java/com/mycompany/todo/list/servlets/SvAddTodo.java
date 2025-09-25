@@ -24,7 +24,7 @@ public class SvAddTodo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        request.getRequestDispatcher("addNewTodo.jsp").forward(request, response);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class SvAddTodo extends HttpServlet {
            
         _service.addTodo(new Todo(FakeDB.generateUniqueId(), title, description, status, date));
         
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("SvTodo");
     }
 
     @Override

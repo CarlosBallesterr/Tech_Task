@@ -41,7 +41,7 @@ public class SvEditTodo extends HttpServlet {
         String date = request.getParameter("date");
                       
        _service.updateTodo(new Todo(id, title, description, status, date));
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("SvTodo");
     }
 
     @Override
