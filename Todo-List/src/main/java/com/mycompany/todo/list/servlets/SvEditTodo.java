@@ -1,7 +1,7 @@
 package com.mycompany.todo.list.servlets;
 
-import Repository.InMemoryRepository;
 import Service.TodoService;
+import config.ServiceProvider;
 import exception.InvalidTodoDataException;
 import exception.RepositoryException;
 import exception.TodoNotFoundException;
@@ -18,7 +18,7 @@ import model.Todo;
 @WebServlet(name = "SvEditTodo", urlPatterns = {"/SvEditTodo"})
 public class SvEditTodo extends HttpServlet {
 
-    TodoService _service = new TodoService(new InMemoryRepository());
+    TodoService _service = ServiceProvider.getTodoService();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

@@ -9,4 +9,5 @@ exception\InvalidTodoDataException.class
 Repository\ITodoRepository.class
 Repository\InMemoryRepository.class
 com\mycompany\todo\list\servlets\SvAddTodo.class
+config\ServiceProvider.class
 Repository\TodoRepository.class
