@@ -1,0 +1,77 @@
+# =========================
+# NetBeans
+# =========================
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+
+
+# =========================
+# IntelliJ IDEA
+# =========================
+.idea/
+*.iml
+out/
+
+
+
+# =========================
+# Compilación / binarios
+# =========================
+*.class
+target/
+build/
+
+
+
+# =========================
+# Maven / Gradle
+# =========================
+/.m2/
+.gradle/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+
+
+# =========================
+# Librerías locales / JARs
+# =========================
+*.jar
+
+
+
+# =========================
+# Archivos temporales / logs / OS
+# =========================
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+
+
+# =========================
+# Configuración sensible
+# =========================
+/config/*.properties
+/config/*.yaml
+
+
+
+# =========================
+# Web / JSP / otros
+# =========================
+/web/WEB-INF/classes/
+ 

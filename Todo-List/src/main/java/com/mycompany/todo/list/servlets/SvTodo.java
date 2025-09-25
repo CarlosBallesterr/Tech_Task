@@ -35,7 +35,7 @@ public class SvTodo extends HttpServlet {
         } catch (RepositoryException e) {           
             request.setAttribute("errorMessage", e.getMessage());
         }        
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("homeTodo.jsp").forward(request, response);
     }
 
     @Override
