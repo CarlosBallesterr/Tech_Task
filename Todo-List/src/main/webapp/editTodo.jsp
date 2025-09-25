@@ -22,16 +22,25 @@
                     %>
                     <form action="SvEditTodo" method="POST">
                         <input type="hidden" name="id" value="<%=todo.getId()%>">
-                        <p><label>Title: </label> <input type="text" name="title" value="<%=todo.getTitle()%>" > </p>
-                        <p><label>Description: </label> <input type="text" name="description" value="<%=todo.getDescription()%>" > </p>
+                        <p>
+                            <label>Title: </label> 
+                            <input type="text" name="title" value="<%=todo.getTitle()%>" required minlength="3"> 
+                        </p>
+                        <p>
+                            <label>Description: </label> 
+                            <input type="text" name="description" value="<%=todo.getDescription()%>" required minlength="5"> 
+                        </p>
                         <p>
                             <label>Status: </label>
-                            <select name="status">
+                            <select name="status" required>
                                 <option value="Pending" <%= "Pending".equals(todo.getStatus()) ? "selected" : ""%>>Pending</option>
                                 <option value="Complete" <%= "Complete".equals(todo.getStatus()) ? "selected" : ""%>>Complete</option>
                             </select>
                         </p>
-                        <p><label>Target Date: </label> <input type="date" name="date" value="<%=todo.getDate()%>" > </p>
+                        <p>
+                            <label>Target Date: </label> 
+                            <input type="date" name="date" value="<%=todo.getDate()%>" > 
+                        </p>
                         <button type="submit">Update and Save</button>
                     </form>
 

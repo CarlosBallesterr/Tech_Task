@@ -17,16 +17,26 @@
             </a>
             <div>
                 <form action="SvAddTodo" method="POST">
-                    <p><label>Title: </label> <input type="text" name="title" > </p>
-                    <p><label>Description: </label> <input type="text" name="description" > </p>
                     <p>
-                        <label>Status: </label> <select name="status">
+                        <label>Title: </label> 
+                        <input type="text" name="title" required minlength="3"> 
+                    </p>
+                    <p>
+                        <label>Description: </label> 
+                        <input type="text" name="description" required minlength="5"> 
+                    </p>
+                    <p>
+                        <label>Status: </label>
+                        <select name="status" required>
+                            <option value="">-- Select --</option>
                             <option value="Pending">Pending</option>
                             <option value="Complete">Complete</option>
                         </select>
                     </p>
 
-                    <p><label>Target Date: </label> <input type="date" name="date" > </p>
+                    <p><label>Target Date: </label> 
+                        <input type="date" name="date" required> 
+                    </p>
                     <button type="submit" >Save</button>
                 </form>
             </div>
