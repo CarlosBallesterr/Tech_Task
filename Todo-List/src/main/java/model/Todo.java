@@ -17,7 +17,8 @@ public class Todo {
     public Todo() {
     }
 
-    public Todo(String title, String description, String status, String date) {
+    public Todo(int id, String title, String description, String status, String date) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.status = status;

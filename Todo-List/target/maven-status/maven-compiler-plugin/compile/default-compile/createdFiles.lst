@@ -1,5 +1,6 @@
-com\mycompany\todo\list\servlets\SvEditTodo.class
 com\mycompany\todo\list\servlets\SvTodo.class
-com\mycompany\todo\list\servlets\SvAddTodo.class
 model\Todo.class
+Service\TodoService.class
 data\FakeDB.class
+com\mycompany\todo\list\servlets\SvEditTodo.class
+com\mycompany\todo\list\servlets\SvAddTodo.class

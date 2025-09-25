@@ -1,35 +1,38 @@
 package com.mycompany.todo.list.servlets;
 
-import data.FakeDB;
+import Service.TodoService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Todo;
 
 @WebServlet(name = "SvTodo", urlPatterns = {"/SvTodo"})
 public class SvTodo extends HttpServlet {
 
+    TodoService _service = new TodoService();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
-        int id = Integer.parseInt(request.getParameter("id"));
-        FakeDB.deleteTodo(id);        
-        response.sendRedirect("index.jsp");
+            throws ServletException, IOException {
+        
+//        List<Todo> todoList = _service.getAllTodo();
+//        request.setAttribute("todoList", todoList);
+//        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        int id = Integer.parseInt(request.getParameter("id"));
+        _service.deleteTodo(id);
+        response.sendRedirect("index.jsp");
     }
 
     @Override

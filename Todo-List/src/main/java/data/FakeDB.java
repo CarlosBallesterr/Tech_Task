@@ -9,8 +9,8 @@ public class FakeDB {
     private static List<Todo> todoList = new ArrayList<>();
 
     static {
-        todoList.add(new Todo("Estudiar Java", "Repasar servlets y JSP", "Pendiente", "2025-09-25"));
-        todoList.add(new Todo("Hacer ejercicio", "Salir a correr", "Completado", "2025-09-23"));
+        todoList.add(new Todo(1, "Estudiar Java", "Repasar servlets y JSP", "Pendiente", "2025-09-25"));
+        todoList.add(new Todo(2, "Hacer ejercicio", "Salir a correr", "Completado", "2025-09-23"));
     }
 
     public static List<Todo> getTodoList() {
@@ -43,7 +43,7 @@ public class FakeDB {
         todoList.removeIf(t -> t.getId() == id);
     }
 
-    private static int currentId = 1;
+    private static int currentId = 10;
 
     public static int generateUniqueId() {
         return currentId++;

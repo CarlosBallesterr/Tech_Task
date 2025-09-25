@@ -1,5 +1,6 @@
 package com.mycompany.todo.list.servlets;
 
+import Service.TodoService;
 import data.FakeDB;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,6 +12,8 @@ import model.Todo;
 
 @WebServlet(name = "SvEditTodo", urlPatterns = {"/SvEditTodo"})
 public class SvEditTodo extends HttpServlet {
+    
+    TodoService _service = new TodoService();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -21,7 +24,8 @@ public class SvEditTodo extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Todo todo = FakeDB.getTodoById(id);
+        Todo todo = _service.getTodoById(id);
+        
         request.setAttribute("todo", todo);
         request.getRequestDispatcher("editTodo.jsp").forward(request, response);
     }
@@ -35,15 +39,8 @@ public class SvEditTodo extends HttpServlet {
         String description = request.getParameter("description");
         String status = request.getParameter("status");
         String date = request.getParameter("date");
-        
-        Todo todo = FakeDB.getTodoById(id);
-        if (todo != null) {
-            todo.setTitle(title);
-            todo.setDescription(description);
-            todo.setStatus(status);
-            todo.setDate(date);
-        }
-       
+               
+       _service.updateTodo(id, title, description, status, date);      
         response.sendRedirect("index.jsp");
     }
 

@@ -1,4 +1,4 @@
-<%@page import="data.FakeDB"%>
+<%@page import="Service.TodoService"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Todo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -28,7 +28,8 @@
                 </tr>
 
                 <%
-                    List<Todo> todoList = FakeDB.getTodoList();
+                    TodoService todoService = new TodoService();
+                    List<Todo> todoList = todoService.getAllTodo();
                     if (todoList != null && !todoList.isEmpty()) {
                         for (Todo todo : todoList) {
                 %>        
@@ -42,7 +43,7 @@
                             <input type="hidden" name="id" value="<%=todo.getId()%>">
                             <button type="submit">Edit</button>
                         </form>
-                        <form action="SvTodo" method="GET" style="display:inline;">
+                        <form action="SvTodo" method="POST" style="display:inline;">
                             <input type="hidden" name="id" value="<%=todo.getId()%>">
                             <button type="submit">Delete</button>
                         </form>
