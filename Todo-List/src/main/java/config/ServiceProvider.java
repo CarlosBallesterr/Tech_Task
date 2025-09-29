@@ -1,6 +1,7 @@
 package config;
 
 import Repository.InMemoryRepository;
+import Repository.TodoRepository;
 import Service.TodoService;
 
 public class ServiceProvider {
@@ -9,7 +10,7 @@ public class ServiceProvider {
 
     public static TodoService getTodoService() {
         if (todoService == null) {
-            todoService = new TodoService(new InMemoryRepository());
+            todoService = new TodoService(new TodoRepository());
         }
         return todoService;
     }

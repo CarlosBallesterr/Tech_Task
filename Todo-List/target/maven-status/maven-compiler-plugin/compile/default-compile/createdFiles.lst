@@ -4,6 +4,7 @@ Service\TodoService.class
 data\FakeDB.class
 com\mycompany\todo\list\servlets\SvEditTodo.class
 exception\RepositoryException.class
+util\DBConnection.class
 exception\TodoNotFoundException.class
 exception\InvalidTodoDataException.class
 Repository\ITodoRepository.class
