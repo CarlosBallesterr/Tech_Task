@@ -9,8 +9,9 @@ public class FakeDB {
     private static List<Todo> todoList = new ArrayList<>();
 
     static {
-        todoList.add(new Todo(1, "Estudiar Java", "Repasar servlets y JSP", "Pendiente", "2025-09-25"));
-        todoList.add(new Todo(2, "Hacer ejercicio", "Salir a correr", "Completado", "2025-09-23"));
+        todoList.add(new Todo(1, "Study Java", "Review servlets and JSP", "Pending", "2025-09-25"));
+        todoList.add(new Todo(2, "Exercise", "Go for a run", "Complete", "2025-09-23"));
+
     }
 
     public static List<Todo> getTodoList() {

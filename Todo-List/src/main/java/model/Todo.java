@@ -1,13 +1,7 @@
 package model;
 
-import java.util.Date;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 public class Todo {
-    @Id
-    @GeneratedValue (strategy=GenerationType.AUTO)
     private int id;
     private String title;
     private String description;
