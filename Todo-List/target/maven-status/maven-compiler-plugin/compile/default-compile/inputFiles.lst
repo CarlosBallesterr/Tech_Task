@@ -1,7 +1,5 @@
 C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\com\mycompany\todo\list\servlets\SvAddTodo.java
-C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\Repository\InMemoryRepository.java
 C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\exception\TodoNotFoundException.java
-C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\Repository\ITodoRepository.java
 C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\util\DBConnection.java
 C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\TodoQueries.java
 C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\exception\InvalidTodoDataException.java
@@ -10,6 +8,8 @@ C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\exc
 C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\com\mycompany\todo\list\servlets\SvEditTodo.java
 C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\data\FakeDB.java
 C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\Service\TodoService.java
+C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\Repository\MemoryTodoRepository.java
 C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\com\mycompany\todo\list\servlets\SvTodo.java
 C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\model\Todo.java
 C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\Repository\TodoRepository.java
+C:\Users\Carlos.Ballester\Documents\GitHub\Tech_Task\Todo-List\src\main\java\Repository\DBTodoRepository.java

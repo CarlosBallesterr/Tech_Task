@@ -23,11 +23,11 @@
                     <input type="hidden" name="id" value="<%=todo.getId()%>">
                     <p>
                         <label>Title: </label> 
-                        <input type="text" name="title" value="<%=todo.getTitle()%>" required minlength="3"> 
+                        <input type="text" name="title" value="<%=todo.getTitle()%>" required minlength="3" pattern="[a-zA-Z0-9,. ]+"> 
                     </p>
                     <p>
                         <label>Description: </label> 
-                        <input type="text" name="description" value="<%=todo.getDescription()%>" required minlength="5"> 
+                        <input type="text" name="description" value="<%=todo.getDescription()%>" required minlength="5" pattern="[a-zA-Z0-9,. ]+"> 
                     </p>
                     <p>
                         <label>Status: </label>
@@ -38,7 +38,13 @@
                     </p>
                     <p>
                         <label>Target Date: </label> 
-                        <input type="date" name="date" value="<%=todo.getDate()%>" > 
+                        <input type="date" name="date" value="<%=todo.getDate()%>" id="dateInput" required>                         
+
+                        <script>
+                            const today = new Date().toISOString().split('T')[0];
+                            document.getElementById('dateInput').setAttribute('min', today);
+                        </script>
+
                     </p>
                     <button type="submit">Update and Save</button>   
                 </form>

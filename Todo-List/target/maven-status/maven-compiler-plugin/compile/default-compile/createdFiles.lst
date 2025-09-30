@@ -5,11 +5,11 @@ Service\TodoService.class
 data\FakeDB.class
 com\mycompany\todo\list\servlets\SvEditTodo.class
 exception\RepositoryException.class
+Repository\DBTodoRepository.class
 util\DBConnection.class
 exception\TodoNotFoundException.class
 exception\InvalidTodoDataException.class
-Repository\ITodoRepository.class
-Repository\InMemoryRepository.class
+Repository\MemoryTodoRepository.class
 com\mycompany\todo\list\servlets\SvAddTodo.class
 config\ServiceProvider.class
 Repository\TodoRepository.class

@@ -43,7 +43,13 @@
                         </form>
                         <form action="SvTodo" method="POST" style="display:inline;">
                             <input type="hidden" name="id" value="<%=todo.getId()%>">
+                            <input type="hidden" name="action" value="delete">
                             <button type="submit">Delete</button>
+                        </form>
+                        <form action="SvTodo" method="POST" style="display:inline;">
+                            <input type="hidden" name="id" value="<%=todo.getId()%>">
+                            <input type="hidden" name="action" value="update">
+                            <button type="submit">Update</button>
                         </form>
                     </td>
 
@@ -64,10 +70,8 @@
                         Integer totalPages = (Integer) request.getAttribute("totalPages");
 
                         if (currentPage != null && totalPages != null && totalPages > 1) {
-                    %>
-                        <%
                             for (int i = 1; i <= totalPages; i++) {
-                        %>
+                    %>
                     <li class="page-item <%= (i == currentPage) ? "active" : ""%>">
                         <a href="SvTodo?page=<%=i%>"><%=i%></a>
                     </li>

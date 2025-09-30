@@ -19,11 +19,11 @@
                 <form action="SvAddTodo" method="POST">
                     <p>
                         <label>Title: </label> 
-                        <input type="text" name="title" required minlength="3"> 
+                        <input type="text" name="title" required minlength="3" pattern="[a-zA-Z0-9,. ]+"> 
                     </p>
                     <p>
                         <label>Description: </label> 
-                        <input type="text" name="description" required minlength="5"> 
+                        <input type="text" name="description" required minlength="5" pattern="[a-zA-Z0-9,. ]+"> 
                     </p>
                     <p>
                         <label>Status: </label>
@@ -34,8 +34,15 @@
                         </select>
                     </p>
 
-                    <p><label>Target Date: </label> 
-                        <input type="date" name="date" required> 
+                    <p>
+                        <label>Target Date: </label> 
+                        <input type="date" name="date" id="dateInput" required>
+
+                        <script>
+                            const today = new Date().toISOString().split('T')[0];
+                            document.getElementById('dateInput').setAttribute('min', today);
+                        </script>
+
                     </p>
                     <button type="submit" >Save</button>
                 </form>

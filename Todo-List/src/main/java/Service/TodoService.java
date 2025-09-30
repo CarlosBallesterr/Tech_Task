@@ -1,18 +1,18 @@
 package Service;
 
-import Repository.ITodoRepository;
 import data.FakeDB;
 import exception.InvalidTodoDataException;
 import exception.RepositoryException;
 import exception.TodoNotFoundException;
 import java.util.List;
 import model.Todo;
+import Repository.TodoRepository;
 
 public class TodoService {
 
-    private final ITodoRepository _repository;
+    private final TodoRepository _repository;
 
-    public TodoService(ITodoRepository repository) {
+    public TodoService(TodoRepository repository) {
         this._repository = repository;
     }
 
@@ -81,5 +81,21 @@ public class TodoService {
     
     public List<Todo> getTodosPaginated(int start, int pageSize) throws RepositoryException {
         return _repository.findPaginated(start, pageSize);
+    }
+    
+    public void updateStatusTodo(Todo todo) throws TodoNotFoundException, InvalidTodoDataException, RepositoryException {
+        if (todo == null || todo.getId() <= 0)
+            throw new InvalidTodoDataException("Todo Id is invalid");        
+
+        try {
+            Todo existing = _repository.getById(todo.getId());
+            if (existing == null) throw new TodoNotFoundException("Todo with ID: " + todo.getId() + " not found");
+            todo.setStatus("Complete");
+            _repository.update(todo);
+        } catch (TodoNotFoundException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new RepositoryException("Failed to update todo", e);
+        }      
     }
 }

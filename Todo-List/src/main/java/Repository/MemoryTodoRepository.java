@@ -4,7 +4,7 @@ import data.FakeDB;
 import java.util.List;
 import model.Todo;
 
-public class InMemoryRepository implements ITodoRepository{
+public class MemoryTodoRepository implements TodoRepository{
 
     @Override
     public List<Todo> getAll() {
