@@ -9,4 +9,7 @@ public interface ITodoRepository {
     void add(Todo todo);
     void update(Todo todo);
     void delete(int id);
+    
+    int count();
+    List<Todo> findPaginated(int start, int pageSize);
 }

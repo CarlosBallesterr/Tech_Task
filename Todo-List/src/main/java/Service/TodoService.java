@@ -74,4 +74,12 @@ public class TodoService {
             throw new RepositoryException("Failed to delete todo", e);
         }                        
     }
+    
+    public int countTodos() throws RepositoryException {
+        return _repository.count();
+    }
+    
+    public List<Todo> getTodosPaginated(int start, int pageSize) throws RepositoryException {
+        return _repository.findPaginated(start, pageSize);
+    }
 }

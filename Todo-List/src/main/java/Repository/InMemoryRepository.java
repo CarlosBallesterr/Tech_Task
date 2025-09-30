@@ -30,5 +30,16 @@ public class InMemoryRepository implements ITodoRepository{
     public void delete(int id) {
         FakeDB.deleteTodo(id);
     }
+
+    @Override
+    public int count() {
+        return 0;
+    }
+
+    @Override
+    public List<Todo> findPaginated(int start, int pageSize) {
+        List<Todo> todo = null;
+        return todo;
+    }
     
 }

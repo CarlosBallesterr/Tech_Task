@@ -116,4 +116,57 @@ public class TodoRepository implements ITodoRepository {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public int count() {
+        String sql = "SELECT COUNT(*) AS total FROM todos";
+        int total = 0;
+        
+        try (Connection conn = DBConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery()) {
+            
+            if (rs.next()) {
+                total= rs.getInt("total");
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return total;
+    }
+
+    @Override
+    public List<Todo> findPaginated(int start, int pageSize) {
+        List<Todo> todos = new ArrayList<>();
+        String sql = "SELECT * FROM todos ORDER BY id LIMIT ? OFFSET ?";
+        
+        try (Connection conn = DBConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+                stmt.setInt(1, pageSize);
+                stmt.setInt(2, start);
+                
+                ResultSet rs = stmt.executeQuery();
+                
+                while (rs.next()) {
+                    todos.add(mapTodo(rs));
+                }
+                                                                   
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return todos;
+    }
+    
+    private Todo mapTodo(ResultSet rs) throws SQLException {
+        Todo todo = new Todo();
+        todo.setId(rs.getInt("id"));
+        todo.setTitle(rs.getString("title"));
+        todo.setDescription(rs.getString("description"));
+        todo.setStatus(rs.getString("status"));
+        todo.setDate(rs.getString("date"));        
+        return todo; 
+    }
 }

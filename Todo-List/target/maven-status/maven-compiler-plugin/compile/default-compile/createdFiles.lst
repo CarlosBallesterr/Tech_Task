@@ -1,4 +1,5 @@
 com\mycompany\todo\list\servlets\SvTodo.class
+TodoQueries.class
 model\Todo.class
 Service\TodoService.class
 data\FakeDB.class

@@ -26,10 +26,30 @@ public class SvTodo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+       int page = 1;
+       int pageSize = 6;
+       
+       if (request.getParameter("page") != null) {
+           try {
+               page = Integer.parseInt(request.getParameter("page"));
+           } catch (NumberFormatException e) {
+               page = 1;
+           }
+       }
                 
         try {
-            List<Todo> todoList = _service.getAllTodo();
-            request.setAttribute("todoList", todoList);            
+            int totalTodos = _service.countTodos();
+            int totalPages = (int) Math.ceil((double) totalTodos / pageSize);
+            
+            int start = (page - 1) * pageSize;
+            
+            
+            List<Todo> todoList = _service.getTodosPaginated(start, pageSize);
+            
+            request.setAttribute("todoList", todoList);
+            request.setAttribute("currentPage", page);
+            request.setAttribute("totalPages", totalPages);
         } catch (RepositoryException e) {           
             request.setAttribute("errorMessage", e.getMessage());
         }        
