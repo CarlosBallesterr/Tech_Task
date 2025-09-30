@@ -56,33 +56,26 @@
                 <%   }
                 %>                
             </table>
-            <div >
-                <h3>holi</h3>
-                <%
-                    int currentPage = (int) request.getAttribute("currentPage");
-                    int totalPages = (int) request.getAttribute("totalPages");
-                    if (totalPages < 1) {
-                        if (currentPage > 1) {
-                %>
-                <a href="SvTodo?page=<%=currentPage - 1%>">Previous</a>
-                <%
-                    }
-                    for (int i = 1; i < totalPages; i++) {
-                %>
-                <a href="SvTodo?page=<%=i%>"
-                   style="<%= (i == currentPage) ? "font-weight:bold;" : ""%>">
-                    <%=i%>
-                </a>
 
-                <%
-                    }
-                    if (currentPage < totalPages) {
-                %>
-                <a href="SvTodo?page=<%=currentPage + 1%>">Next</a>
-                <%
+            <div class="pagination-container">
+                   <ul class="pagination">
+                    <%
+                        Integer currentPage = (Integer) request.getAttribute("currentPage");
+                        Integer totalPages = (Integer) request.getAttribute("totalPages");
+
+                        if (currentPage != null && totalPages != null && totalPages > 1) {
+                    %>
+                        <%
+                            for (int i = 1; i <= totalPages; i++) {
+                        %>
+                    <li class="page-item <%= (i == currentPage) ? "active" : ""%>">
+                        <a href="SvTodo?page=<%=i%>"><%=i%></a>
+                    </li>
+                    <%
                         }
-                    }
-                %>
+                    %>                    
+                           <% }%>
+                       </ul>
             </div>
         </div>
     </body>

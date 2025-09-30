@@ -71,3 +71,57 @@ table, th, td {
     margin-bottom: 50px;
 }
 
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;        
+}
+
+.pagination {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    padding: 0;   
+}
+
+.pagination li {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;   
+}
+
+li {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;   
+}
+
+.pagination li a {
+    display: block;
+    padding: 8px 14px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;        
+}
+
+.pagination li:hover {
+    background-color: #f5f5f5;
+}
+
+.pagination li.active {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.pagination li.active a {
+    color: white;
+}
+
+.pagination li.disable { 
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+
