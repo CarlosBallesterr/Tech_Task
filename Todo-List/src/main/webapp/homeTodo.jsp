@@ -43,14 +43,14 @@
                         </form>
                         <form action="SvTodo" method="POST" style="display:inline;"
                               onsubmit="return confirmDelete();">
-                            <input type="hidden" name="id" value="<%=todo.getId()%>">
                             <input type="hidden" name="action" value="delete">
+                            <input type="hidden" name="id" value="<%=todo.getId()%>">
                             <button type="submit">Delete</button>
                         </form>
                         <form action="SvTodo" method="POST" style="display:inline;"
                               onsubmit="return confirmUpate();">
-                            <input type="hidden" name="id" value="<%=todo.getId()%>">
                             <input type="hidden" name="action" value="update">
+                            <input type="hidden" name="id" value="<%=todo.getId()%>">
                             <button type="submit">Update</button>
                         </form>
                     </td>
@@ -77,18 +77,17 @@
                     <li class="page-item <%= (i == currentPage) ? "active" : ""%>">
                         <a href="SvTodo?page=<%=i%>"><%=i%></a>
                     </li>
-                    <%
-                        }
-                    %>                    
-                           <% }%>
-                       </ul>
+                            <%}%>                    
+                        <%}%>
+                    </ul>
             </div>
         </div>
+                    
         <script>
             function confirmDelete() {
                 return confirm(" Are you sure you want delete this to-do?");
             }
-            
+
             function confirmUpate() {
                 return confirm(" Are you sure you want to update the status to complete with this to-do?");
             }
